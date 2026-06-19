@@ -265,7 +265,7 @@
       inset: 0;
       background:
         linear-gradient(90deg, rgba(0,0,0,0.86), rgba(0,0,0,0.36), rgba(0,0,0,0.90)),
-        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=80") center/cover;
+        url("site-loader-truck-wide.jpeg") center/cover;
       opacity: 0.42;
     }
 
@@ -733,7 +733,7 @@
       position: relative;
       background:
         linear-gradient(180deg, transparent, rgba(0,0,0,0.86)),
-        url("https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1600&q=80") center/cover;
+        url("site-white-tipper-dumping.jpeg") center/cover;
       border: 1px solid var(--line);
     }
 
@@ -1067,7 +1067,7 @@
       border-radius: 30px;
       background:
         linear-gradient(135deg, rgba(236,17,26,0.22), rgba(0,0,0,0.75)),
-        url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80") center/cover;
+        url("site-truck-sunset.jpeg") center/cover;
       border: 1px solid var(--line);
       position: relative;
       overflow: hidden;
@@ -1234,7 +1234,7 @@
       text-align: center;
       background:
         linear-gradient(135deg, rgba(236,17,26,0.20), rgba(0,0,0,0.72)),
-        url("https://images.unsplash.com/photo-1517089596392-fb9a9033e05c?auto=format&fit=crop&w=1600&q=80") center/cover;
+        url("site-loader-loading-truck.jpeg") center/cover;
     }
 
     .video-placeholder h3 {
@@ -1248,6 +1248,13 @@
       max-width: 600px;
     }
 
+    .modal-video {
+      width: 100%;
+      max-height: 72vh;
+      background: #000;
+      display: block;
+    }
+
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -1257,6 +1264,395 @@
     .reveal.show {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(236,17,26,0.22), transparent 36%),
+        #030303;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+
+    .preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-card {
+      width: min(360px, calc(100% - 40px));
+      padding: 34px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      text-align: center;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .loader-card img {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 24px;
+      padding: 8px;
+      animation: pulseLogo 1.2s ease-in-out infinite;
+    }
+
+    @keyframes pulseLogo {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(236,17,26,0)); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 24px rgba(236,17,26,0.55)); }
+    }
+
+    .loader-card strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .loader-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .premium-strip {
+      padding: 32px 0;
+      background: linear-gradient(90deg, rgba(236,17,26,0.16), rgba(255,255,255,0.06), rgba(236,17,26,0.16));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .premium-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .premium-stat {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(0,0,0,0.28);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .premium-stat strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 46px);
+      color: var(--red-2);
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .premium-stat span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .signature {
+      background:
+        radial-gradient(circle at 10% 5%, rgba(236,17,26,0.24), transparent 28%),
+        radial-gradient(circle at 90% 90%, rgba(255,255,255,0.08), transparent 30%),
+        #070709;
+      border-block: 1px solid var(--line);
+    }
+
+    .signature-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .signature-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.80)),
+        url("site-grader.jpeg") center/cover;
+      min-height: 540px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .signature-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -30% -20%;
+      height: 55%;
+      background: radial-gradient(circle, rgba(236,17,26,0.42), transparent 65%);
+      filter: blur(20px);
+    }
+
+    .signature-card h2,
+    .signature-card p,
+    .signature-card .pill {
+      position: relative;
+      z-index: 1;
+    }
+
+    .signature-card h2 {
+      font-size: clamp(36px, 4.8vw, 64px);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      margin-bottom: 18px;
+    }
+
+    .signature-card p {
+      color: #e8e9ef;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 620px;
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .advantage {
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.075);
+      border: 1px solid var(--line);
+      min-height: 170px;
+    }
+
+    .advantage b {
+      display: block;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .advantage p {
+      color: var(--muted);
+      line-height: 1.62;
+      font-size: 15px;
+    }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .industry {
+      min-height: 160px;
+      padding: 22px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .industry:hover {
+      transform: translateY(-8px);
+      border-color: rgba(236,17,26,0.55);
+    }
+
+    .industry span {
+      font-size: 32px;
+    }
+
+    .industry b {
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-rows: 270px 270px;
+      gap: 18px;
+    }
+
+    .showcase {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.84)),
+        var(--image) center/cover;
+    }
+
+    .showcase.big {
+      grid-row: span 2;
+    }
+
+    .showcase-content {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 24px;
+    }
+
+    .showcase-content h3 {
+      font-size: clamp(24px, 3vw, 42px);
+      margin-bottom: 10px;
+      letter-spacing: -0.035em;
+    }
+
+    .showcase-content p {
+      color: #e4e5ec;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .trust-panel {
+      padding: 38px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(236,17,26,0.16), rgba(255,255,255,0.07)),
+        rgba(255,255,255,0.04);
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .trust-panel h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .trust-item {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--line);
+    }
+
+    .trust-item b {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .faq button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .faq p {
+      display: none;
+      padding: 0 22px 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq.open p {
+      display: block;
+    }
+
+    .faq.open button span {
+      transform: rotate(45deg);
+    }
+
+    .real-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .real-shot {
+      min-height: 270px;
+      grid-column: span 4;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.86)),
+        var(--image) center/cover;
+      transition: 0.35s ease;
+    }
+
+    .real-shot.wide {
+      grid-column: span 8;
+    }
+
+    .real-shot.tall {
+      min-height: 560px;
+      grid-row: span 2;
+    }
+
+    .real-shot:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(236,17,26,0.55);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.38);
+    }
+
+    .real-shot div {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+    }
+
+    .real-shot b {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .real-shot span {
+      color: #e0e2e8;
+      line-height: 1.55;
+      font-size: 14px;
     }
 
     .falling {
@@ -1281,13 +1677,18 @@
       .media-grid,
       .quote-panel,
       .contact-grid,
-      .section-head {
+      .section-head,
+      .signature-layout,
+      .trust-panel {
         grid-template-columns: 1fr;
       }
 
       .services-grid,
       .process-grid,
-      .team-grid {
+      .team-grid,
+      .premium-strip-grid,
+      .industries-grid,
+      .trust-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1386,8 +1787,32 @@
       .process-grid,
       .team-grid,
       .quote-form,
-      .footer-grid {
+      .footer-grid,
+      .premium-strip-grid,
+      .advantage-grid,
+      .industries-grid,
+      .trust-grid,
+      .showcase-grid,
+      .real-gallery {
         grid-template-columns: 1fr;
+      }
+
+      .real-shot,
+      .real-shot.wide,
+      .real-shot.tall {
+        grid-column: auto;
+        min-height: 340px;
+        grid-row: auto;
+      }
+
+      .showcase-grid {
+        grid-template-rows: auto;
+      }
+
+      .showcase,
+      .showcase.big {
+        min-height: 360px;
+        grid-row: auto;
       }
 
       .media-feature {
@@ -1408,6 +1833,14 @@
   </style>
 </head>
 <body>
+  <div class="preloader" id="preloader">
+    <div class="loader-card">
+      <img src="WATER_MARK_RED_4.jpg" alt="Malik Group loading logo" />
+      <strong>Malik Group</strong>
+      <span>Preparing UAE industrial excellence...</span>
+    </div>
+  </div>
+
   <div class="noise"></div>
   <div class="cursor-glow"></div>
 
@@ -1516,6 +1949,27 @@
       <div class="ticker-item">Scrap Trading <span>•</span> General Trading <span>•</span> Transport <span>•</span> General Contracting <span>•</span> Site Clearance <span>•</span> Waste Removal <span>•</span></div>
     </div>
   </div>
+
+  <section class="premium-strip" aria-label="Malik Group highlights">
+    <div class="container premium-strip-grid">
+      <div class="premium-stat reveal">
+        <strong data-count="2008">0</strong>
+        <span>Founded in UAE</span>
+      </div>
+      <div class="premium-stat reveal">
+        <strong data-count="4">0</strong>
+        <span>Core divisions</span>
+      </div>
+      <div class="premium-stat reveal">
+        <strong data-count="7">0</strong>
+        <span>Days support mindset</span>
+      </div>
+      <div class="premium-stat reveal">
+        <strong>UAE</strong>
+        <span>Operations coverage</span>
+      </div>
+    </div>
+  </section>
 
   <section id="about">
     <div class="container">
@@ -1678,6 +2132,40 @@
     </div>
   </section>
 
+  <section class="signature">
+    <div class="container">
+      <div class="signature-layout">
+        <div class="signature-card reveal">
+          <span class="pill">🏆 Premium UAE industrial partner</span>
+          <h2>Designed to look powerful before the first call.</h2>
+          <p>
+            A strong company website should make the customer feel confidence immediately:
+            clear services, serious visuals, quick contact, and proof that the team can handle real site work.
+          </p>
+        </div>
+
+        <div class="advantage-grid">
+          <div class="advantage reveal">
+            <b>⚡ Fast action</b>
+            <p>For scrap, transport and site clearance work, speed matters. The design pushes customers directly to call, WhatsApp or request a quote.</p>
+          </div>
+          <div class="advantage reveal">
+            <b>🛡️ Professional trust</b>
+            <p>Founded in 2008, Musaffah location, team members and service divisions are shown clearly for credibility.</p>
+          </div>
+          <div class="advantage reveal">
+            <b>🏗️ Heavy industry feel</b>
+            <p>Dark premium visuals, red brand color, industrial photography and motion effects give a serious UAE business image.</p>
+          </div>
+          <div class="advantage reveal">
+            <b>📲 Customer-first</b>
+            <p>Mobile responsive, WhatsApp ready, fast navigation and a quotation form make it easy for a customer to take action.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="companies" id="companies">
     <div class="container">
       <div class="section-head reveal">
@@ -1693,7 +2181,7 @@
       </div>
 
       <div class="company-grid">
-        <article class="company-card reveal" style="--image:url('https://images.unsplash.com/photo-1532619187608-e5375cab36aa?auto=format&fit=crop&w=1400&q=80')">
+        <article class="company-card reveal" style="--image:url('site-loader-loading-truck.jpeg')">
           <h3>New Malik Scrap Trading</h3>
           <p>
             Scrap collection, metal trading, cable scrap, machinery scrap and industrial material handling
@@ -1702,7 +2190,7 @@
           <a class="btn btn-red" href="#quote">Request Scrap Quote</a>
         </article>
 
-        <article class="company-card reveal" style="--image:url('https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&w=1400&q=80')">
+        <article class="company-card reveal" style="--image:url('site-tipper-dumping-orange.jpeg')">
           <h3>New Malik Transportation & General Contracting</h3>
           <p>
             Transport, heavy equipment, site clearance, demolition support, maintenance and project
@@ -1710,6 +2198,30 @@
           </p>
           <a class="btn btn-red" href="#quote">Request Transport Quote</a>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Industries Served</div>
+          <h2>Built for UAE’s working sectors.</h2>
+        </div>
+        <p>
+          Malik Group can present itself as a partner for contractors, factories, yards, industrial sites,
+          power projects, construction companies and businesses that need fast practical service.
+        </p>
+      </div>
+
+      <div class="industries-grid">
+        <div class="industry reveal"><span>🏭</span><b>Factories & yards</b></div>
+        <div class="industry reveal"><span>🏗️</span><b>Construction sites</b></div>
+        <div class="industry reveal"><span>⚡</span><b>Power & utility projects</b></div>
+        <div class="industry reveal"><span>🚢</span><b>Ports & logistics</b></div>
+        <div class="industry reveal"><span>🏢</span><b>Commercial facilities</b></div>
+        <div class="industry reveal"><span>♻️</span><b>Recycling & scrap</b></div>
       </div>
     </div>
   </section>
@@ -1740,13 +2252,116 @@
         </div>
 
         <div class="gallery-side">
-          <div class="gallery-tile reveal" style="--image:url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=900&q=80')">
-            <span>Scrap collection and yard handling</span>
+          <div class="gallery-tile reveal" style="--image:url('site-excavator-slope.jpeg')">
+            <span>Excavation, slope cutting and site preparation</span>
           </div>
-          <div class="gallery-tile reveal" style="--image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80')">
-            <span>Transport and logistics support</span>
+          <div class="gallery-tile reveal" style="--image:url('site-truck-sunset.jpeg')">
+            <span>Transport and logistics support on active sites</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Real Malik Group Work</div>
+          <h2>Actual site photos, not fake portfolio images.</h2>
+        </div>
+        <p>
+          These images show loaders, graders, excavators and tipper trucks working on UAE project sites.
+          This makes the website look more trustworthy because customers can see real work happening.
+        </p>
+      </div>
+
+      <div class="real-gallery">
+        <article class="real-shot wide reveal" style="--image:url('site-loader-truck-wide.jpeg')">
+          <div>
+            <b>Tipper unloading with loader support</b>
+            <span>Real heavy equipment and truck operation on an active sandy site.</span>
+          </div>
+        </article>
+        <article class="real-shot tall reveal" style="--image:url('site-tipper-dumping-orange.jpeg')">
+          <div>
+            <b>Material dumping operation</b>
+            <span>Tipper truck unloading material with clear site visibility.</span>
+          </div>
+        </article>
+        <article class="real-shot reveal" style="--image:url('site-loader-field.jpeg')">
+          <div>
+            <b>Loader and grader coordination</b>
+            <span>Heavy machinery working together for land preparation.</span>
+          </div>
+        </article>
+        <article class="real-shot reveal" style="--image:url('site-white-tipper-dumping.jpeg')">
+          <div>
+            <b>High-capacity truck discharge</b>
+            <span>Bulk material unloading for project support and site works.</span>
+          </div>
+        </article>
+        <article class="real-shot reveal" style="--image:url('site-loader-loading-truck.jpeg')">
+          <div>
+            <b>Loading and removal</b>
+            <span>Wheel loader handling waste/material before truck removal.</span>
+          </div>
+        </article>
+        <article class="real-shot reveal" style="--image:url('site-excavator-slope.jpeg')">
+          <div>
+            <b>Excavator slope work</b>
+            <span>Excavation and cutting work in a demanding outdoor site.</span>
+          </div>
+        </article>
+        <article class="real-shot reveal" style="--image:url('site-grader.jpeg')">
+          <div>
+            <b>Grader site leveling</b>
+            <span>Road and ground preparation using heavy equipment.</span>
+          </div>
+        </article>
+        <article class="real-shot wide reveal" style="--image:url('site-truck-sunset.jpeg')">
+          <div>
+            <b>Truck support at sunset</b>
+            <span>Transportation support for site clearance and material movement.</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Visual Showcase</div>
+          <h2>A website that feels expensive.</h2>
+        </div>
+        <p>
+          This section is for real Malik Group project photos: trucks loaded, scrap yards, machinery,
+          site clearance, cable drums, containers and industrial work. Replace the placeholder images
+          with your original media for the final version.
+        </p>
+      </div>
+
+      <div class="showcase-grid">
+        <article class="showcase big reveal" style="--image:url('site-loader-desert.jpeg')">
+          <div class="showcase-content">
+            <h3>Heavy work. Clean handover.</h3>
+            <p>Show completed site clearance, before/after work and client project photos here.</p>
+          </div>
+        </article>
+        <article class="showcase reveal" style="--image:url('site-excavator-slope.jpeg')">
+          <div class="showcase-content">
+            <h3>Machinery support</h3>
+            <p>Excavator, loader, cutting, lifting and manpower visuals.</p>
+          </div>
+        </article>
+        <article class="showcase reveal" style="--image:url('site-truck-sunset.jpeg')">
+          <div class="showcase-content">
+            <h3>Fleet movement</h3>
+            <p>Trucks and logistics support across Abu Dhabi and UAE.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1834,6 +2449,40 @@
           <h3>Complete & Handover</h3>
           <p>Work is completed, area is cleared and the customer is updated professionally.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="trust-panel reveal">
+        <h2>Why customers should choose Malik Group.</h2>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <b>Clear scope</b>
+            <span>Work can be defined by material, manpower, machinery, transport and site requirements.</span>
+          </div>
+          <div class="trust-item">
+            <b>Practical execution</b>
+            <span>The website shows the group as hands-on, action-focused and ready for industrial jobs.</span>
+          </div>
+          <div class="trust-item">
+            <b>UAE presence</b>
+            <span>Musaffah, Abu Dhabi base with service reach across the Emirates.</span>
+          </div>
+          <div class="trust-item">
+            <b>Sustainable work</b>
+            <span>Scrap trading and recycling support connects business service with environmental value.</span>
+          </div>
+          <div class="trust-item">
+            <b>Fast contact</b>
+            <span>Call, email, WhatsApp and quotation actions are always easy to find.</span>
+          </div>
+          <div class="trust-item">
+            <b>Premium image</b>
+            <span>Strong design makes Malik Group feel bigger, sharper and more competitive.</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1932,6 +2581,40 @@
             <button class="btn btn-red" type="submit">Prepare WhatsApp Message</button>
           </div>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">FAQ</div>
+          <h2>Questions customers ask.</h2>
+        </div>
+        <p>
+          These FAQs help customers understand the work quickly and reduce unnecessary calls.
+          You can add more questions later.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq reveal">
+          <button type="button">Do you collect scrap from project sites? <span>+</span></button>
+          <p>Yes. The website presents Malik Group for scrap collection, loading, removal and transport from industrial and project sites.</p>
+        </div>
+        <div class="faq reveal">
+          <button type="button">Can Malik Group arrange transport and manpower? <span>+</span></button>
+          <p>Yes. Customers can request transport, manpower, site clearance and machinery support depending on the site condition.</p>
+        </div>
+        <div class="faq reveal">
+          <button type="button">Where is Malik Group located? <span>+</span></button>
+          <p>Malik Group is headquartered at Plot Number 4 M-12, Musaffah, Abu Dhabi, UAE.</p>
+        </div>
+        <div class="faq reveal">
+          <button type="button">How can a customer request a quote? <span>+</span></button>
+          <p>The customer can use the quotation form, WhatsApp button, email or call button directly from the website.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2046,24 +2729,21 @@
         <strong>Malik Group Work Video</strong>
         <button class="close" onclick="closeVideo()">×</button>
       </div>
-      <div class="video-placeholder">
-        <div>
-          <h3>Place your real Malik Group video here</h3>
-          <p>
-            If you have a video file, replace this section with:
-            <br />
-            &lt;video src="your-video.mp4" controls autoplay&gt;&lt;/video&gt;
-          </p>
-        </div>
-      </div>
+      <video class="modal-video" id="workVideo" src="malik-work-video.mp4" controls playsinline></video>
     </div>
   </div>
 
   <script>
+    const preloader = document.getElementById("preloader");
     const navLinks = document.getElementById("navLinks");
     const menuBtn = document.getElementById("menuBtn");
     const funOutput = document.getElementById("funOutput");
     const videoModal = document.getElementById("videoModal");
+    const workVideo = document.getElementById("workVideo");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => preloader.classList.add("hide"), 650);
+    });
 
     menuBtn.addEventListener("click", () => {
       navLinks.classList.toggle("open");
@@ -2080,11 +2760,40 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          if (entry.target.classList.contains("premium-stat")) {
+            const number = entry.target.querySelector("[data-count]");
+            if (number && !number.dataset.done) animateCounter(number);
+          }
+        }
       });
     }, { threshold: 0.12 });
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    function animateCounter(element) {
+      element.dataset.done = "true";
+      const target = Number(element.dataset.count);
+      const duration = target > 100 ? 1600 : 900;
+      const start = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    document.querySelectorAll(".faq button").forEach(button => {
+      button.addEventListener("click", () => {
+        const faq = button.parentElement;
+        faq.classList.toggle("open");
+      });
+    });
 
     function beCustomer() {
       const messages = [
@@ -2113,10 +2822,15 @@
 
     function openVideo() {
       videoModal.classList.add("show");
+      if (workVideo) {
+        workVideo.currentTime = 0;
+        workVideo.play().catch(() => {});
+      }
     }
 
     function closeVideo() {
       videoModal.classList.remove("show");
+      if (workVideo) workVideo.pause();
     }
 
     videoModal.addEventListener("click", (event) => {
